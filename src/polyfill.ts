@@ -98,15 +98,6 @@ declare global {
   type IDBTransactionMode = IDBTransactionMode_;
 }
 
-if (typeof indexedDB !== "undefined") {
-  process.emitWarning(
-    "The `indexedDB` global already exists. This is probably because you " +
-      "are using another indexedDB polyfill. The @jcbhmr/indexeddb.node " +
-      "polyfill is still being applied, and will overwrite the existing " +
-      "global."
-  );
-}
-
 globalThis.IDBRequest = IDBRequest;
 globalThis.IDBOpenRequest = IDBOpenRequest;
 globalThis.IDBVersionChangeEvent = IDBVersionChangeEvent;
