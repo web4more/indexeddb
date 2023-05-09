@@ -1,101 +1,101 @@
 // Copyright 2017 Jeremy Scheff
 // SPDX-License-Identifier: Apache-2.0
 
-import cmp from "./lib/cmp.js";
-import { DataError } from "./lib/errors.js";
-import { Key } from "./lib/types.js";
-import valueToKey from "./lib/valueToKey.js";
+import cmp from "./internal/cmp.js";
+import { DataError } from "./internal/errors.js";
+import { Key } from "./internal/types.js";
+import valueToKey from "./internal/valueToKey.js";
 
 // http://www.w3.org/TR/2015/REC-IndexedDB-20150108/#range-concept
 class FDBKeyRange {
-    public static only(value: Key) {
-        if (arguments.length === 0) {
-            throw new TypeError();
-        }
-        value = valueToKey(value);
-        return new FDBKeyRange(value, value, false, false);
+  public static only(value: Key) {
+    if (arguments.length === 0) {
+      throw new TypeError();
+    }
+    value = valueToKey(value);
+    return new FDBKeyRange(value, value, false, false);
+  }
+
+  public static lowerBound(lower: Key, open: boolean = false) {
+    if (arguments.length === 0) {
+      throw new TypeError();
+    }
+    lower = valueToKey(lower);
+    return new FDBKeyRange(lower, undefined, open, true);
+  }
+
+  public static upperBound(upper: Key, open: boolean = false) {
+    if (arguments.length === 0) {
+      throw new TypeError();
+    }
+    upper = valueToKey(upper);
+    return new FDBKeyRange(undefined, upper, true, open);
+  }
+
+  public static bound(
+    lower: Key,
+    upper: Key,
+    lowerOpen: boolean = false,
+    upperOpen: boolean = false
+  ) {
+    if (arguments.length < 2) {
+      throw new TypeError();
     }
 
-    public static lowerBound(lower: Key, open: boolean = false) {
-        if (arguments.length === 0) {
-            throw new TypeError();
-        }
-        lower = valueToKey(lower);
-        return new FDBKeyRange(lower, undefined, open, true);
+    const cmpResult = cmp(lower, upper);
+    if (cmpResult === 1 || (cmpResult === 0 && (lowerOpen || upperOpen))) {
+      throw new DataError();
     }
 
-    public static upperBound(upper: Key, open: boolean = false) {
-        if (arguments.length === 0) {
-            throw new TypeError();
-        }
-        upper = valueToKey(upper);
-        return new FDBKeyRange(undefined, upper, true, open);
+    lower = valueToKey(lower);
+    upper = valueToKey(upper);
+    return new FDBKeyRange(lower, upper, lowerOpen, upperOpen);
+  }
+
+  public readonly lower: Key | undefined;
+  public readonly upper: Key | undefined;
+  public readonly lowerOpen: boolean;
+  public readonly upperOpen: boolean;
+
+  constructor(
+    lower: Key | undefined,
+    upper: Key | undefined,
+    lowerOpen: boolean,
+    upperOpen: boolean
+  ) {
+    this.lower = lower;
+    this.upper = upper;
+    this.lowerOpen = lowerOpen;
+    this.upperOpen = upperOpen;
+  }
+
+  // https://w3c.github.io/IndexedDB/#dom-idbkeyrange-includes
+  public includes(key: Key) {
+    if (arguments.length === 0) {
+      throw new TypeError();
     }
+    key = valueToKey(key);
 
-    public static bound(
-        lower: Key,
-        upper: Key,
-        lowerOpen: boolean = false,
-        upperOpen: boolean = false,
-    ) {
-        if (arguments.length < 2) {
-            throw new TypeError();
-        }
+    if (this.lower !== undefined) {
+      const cmpResult = cmp(this.lower, key);
 
-        const cmpResult = cmp(lower, upper);
-        if (cmpResult === 1 || (cmpResult === 0 && (lowerOpen || upperOpen))) {
-            throw new DataError();
-        }
-
-        lower = valueToKey(lower);
-        upper = valueToKey(upper);
-        return new FDBKeyRange(lower, upper, lowerOpen, upperOpen);
+      if (cmpResult === 1 || (cmpResult === 0 && this.lowerOpen)) {
+        return false;
+      }
     }
+    if (this.upper !== undefined) {
+      const cmpResult = cmp(this.upper, key);
 
-    public readonly lower: Key | undefined;
-    public readonly upper: Key | undefined;
-    public readonly lowerOpen: boolean;
-    public readonly upperOpen: boolean;
-
-    constructor(
-        lower: Key | undefined,
-        upper: Key | undefined,
-        lowerOpen: boolean,
-        upperOpen: boolean,
-    ) {
-        this.lower = lower;
-        this.upper = upper;
-        this.lowerOpen = lowerOpen;
-        this.upperOpen = upperOpen;
+      if (cmpResult === -1 || (cmpResult === 0 && this.upperOpen)) {
+        return false;
+      }
     }
+    return true;
+  }
 
-    // https://w3c.github.io/IndexedDB/#dom-idbkeyrange-includes
-    public includes(key: Key) {
-        if (arguments.length === 0) {
-            throw new TypeError();
-        }
-        key = valueToKey(key);
-
-        if (this.lower !== undefined) {
-            const cmpResult = cmp(this.lower, key);
-
-            if (cmpResult === 1 || (cmpResult === 0 && this.lowerOpen)) {
-                return false;
-            }
-        }
-        if (this.upper !== undefined) {
-            const cmpResult = cmp(this.upper, key);
-
-            if (cmpResult === -1 || (cmpResult === 0 && this.upperOpen)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public toString() {
-        return "[object IDBKeyRange]";
-    }
+  public toString() {
+    return "[object IDBKeyRange]";
+  }
 }
 
 export default FDBKeyRange;

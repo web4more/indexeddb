@@ -3,27 +3,27 @@
 
 import FDBCursor from "./FDBCursor.js";
 import {
-    CursorRange,
-    CursorSource,
-    FDBCursorDirection,
-    Value,
-} from "./lib/types.js";
+  CursorRange,
+  CursorSource,
+  FDBCursorDirection,
+  Value,
+} from "./internal/types.js";
 
 class FDBCursorWithValue extends FDBCursor {
-    public value: Value = undefined;
+  public value: Value = undefined;
 
-    constructor(
-        source: CursorSource,
-        range: CursorRange,
-        direction?: FDBCursorDirection,
-        request?: any,
-    ) {
-        super(source, range, direction, request);
-    }
+  constructor(
+    source: CursorSource,
+    range: CursorRange,
+    direction?: FDBCursorDirection,
+    request?: any
+  ) {
+    super(source, range, direction, request);
+  }
 
-    public toString() {
-        return "[object IDBCursorWithValue]";
-    }
+  public toString() {
+    return "[object IDBCursorWithValue]";
+  }
 }
 
 export default FDBCursorWithValue;
