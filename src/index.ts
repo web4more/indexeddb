@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import fakeIndexedDB from "./fakeIndexedDB.js";
 export default fakeIndexedDB;
 export { fakeIndexedDB as indexedDB };

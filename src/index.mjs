@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import fakeIndexedDB from "../build/esm/fakeIndexedDB.js";
 import FDBCursor from "../build/esm/FDBCursor.js";
 import FDBCursorWithValue from "../build/esm/FDBCursorWithValue.js";

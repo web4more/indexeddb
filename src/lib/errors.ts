@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 /* tslint:disable: max-classes-per-file max-line-length */
 
 const messages = {

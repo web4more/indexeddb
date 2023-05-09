@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import fs from "node:fs";
 import glob from "glob";
 import path from "node:path";

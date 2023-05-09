@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 class FakeDOMStringList extends Array<string> {
     contains(value: string) {
         for (const value2 of this) {

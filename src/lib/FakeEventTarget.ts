@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import { InvalidStateError } from "./errors.js";
 import FakeEvent from "./FakeEvent.js";
 import { EventCallback, EventType } from "./types.js";

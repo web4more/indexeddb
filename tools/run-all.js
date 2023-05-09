@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import { execSync } from "node:child_process";
 import path from "node:path";
 import glob from "glob";

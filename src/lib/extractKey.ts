@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import structuredClone from "./structuredClone.js";
 import { Key, KeyPath, Value } from "./types.js";
 import valueToKey from "./valueToKey.js";

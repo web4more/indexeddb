@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import cmp from "./lib/cmp.js";
 import { DataError } from "./lib/errors.js";
 import { Key } from "./lib/types.js";

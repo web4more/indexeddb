@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import assert from "node:assert";
 import "../auto/index.mjs";
 import Dexie from "dexie";

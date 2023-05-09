@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 // Built-in structuredClone arrived in Node 17, so we need to keep this file around as long as we support Node 16
 
 // @ts-expect-error

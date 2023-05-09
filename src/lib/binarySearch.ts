@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import FDBKeyRange from "../FDBKeyRange.js";
 import cmp from "./cmp.js";
 import { Key, Record } from "./types.js";

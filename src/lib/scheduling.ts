@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 // When running within Node.js (including jsdom), we want to use setImmediate
 // (which runs immediately) rather than setTimeout (which enforces a minimum
 // delay of 1ms, and on Windows only has a resolution of 15ms or so).  jsdom

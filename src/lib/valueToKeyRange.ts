@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import FDBKeyRange from "../FDBKeyRange.js";
 import { DataError } from "./errors.js";
 import valueToKey from "./valueToKey.js";

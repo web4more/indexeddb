@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import FDBCursor from "./FDBCursor.js";
 import FDBIndex from "./FDBIndex.js";
 import FDBObjectStore from "./FDBObjectStore.js";

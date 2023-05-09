@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import FDBRequest from "./FDBRequest.js";
 import { EventCallback } from "./lib/types.js";
 

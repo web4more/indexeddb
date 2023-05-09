@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import FakeEvent from "./lib/FakeEvent.js";
 
 class FDBVersionChangeEvent extends FakeEvent {

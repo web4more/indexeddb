@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 // https://heycam.github.io/webidl/#EnforceRange
 
 const enforceRange = (

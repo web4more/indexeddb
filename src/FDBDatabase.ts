@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import FDBTransaction from "./FDBTransaction.js";
 import Database from "./lib/Database.js";
 import {

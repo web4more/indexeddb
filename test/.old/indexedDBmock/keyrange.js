@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 QUnit.module("KeyRange");
 QUnit.test("only - number", function (assert) {
     var value = 1;

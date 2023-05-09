@@ -1,3 +1,6 @@
+// Copyright 2017 Jeremy Scheff
+// SPDX-License-Identifier: Apache-2.0
+
 import FDBDatabase from "./FDBDatabase.js";
 import FDBOpenDBRequest from "./FDBOpenDBRequest.js";
 import FDBVersionChangeEvent from "./FDBVersionChangeEvent.js";
