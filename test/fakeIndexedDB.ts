@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import * as assert from "assert";
-import fakeIndexedDB from "../../fakeIndexedDB.js";
+import fakeIndexedDB from "./fakeIndexedDB.js";
 import FDBCursorWithValue from "../../FDBCursorWithValue.js";
 import FDBDatabase from "../../FDBDatabase.js";
 import FDBFactory from "../../FDBFactory.js";
