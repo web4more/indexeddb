@@ -1,12 +1,12 @@
 // Copyright 2017 Jeremy Scheff
 // SPDX-License-Identifier: Apache-2.0
 
-import FDBCursor from "./FDBCursor.js";
-import FDBCursorWithValue from "./FDBCursorWithValue.js";
-import FDBIndex from "./FDBIndex.js";
-import FDBKeyRange from "./FDBKeyRange.js";
-import FDBRequest from "./FDBRequest.js";
-import FDBTransaction from "./FDBTransaction.js";
+import FDBCursor from "./IDBCursor.js";
+import FDBCursorWithValue from "./IDBCursorWithValue.js";
+import FDBIndex from "./IDBIndex.js";
+import FDBKeyRange from "./IDBKeyRange.js";
+import FDBRequest from "./IDBRequest.js";
+import FDBTransaction from "./IDBTransaction.js";
 import canInjectKey from "./internal/canInjectKey.js";
 import enforceRange from "./internal/enforceRange.js";
 import {

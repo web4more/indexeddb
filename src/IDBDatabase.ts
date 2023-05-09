@@ -1,7 +1,7 @@
 // Copyright 2017 Jeremy Scheff
 // SPDX-License-Identifier: Apache-2.0
 
-import FDBTransaction from "./FDBTransaction.js";
+import FDBTransaction from "./IDBTransaction.js";
 import Database from "./internal/Database.js";
 import {
   ConstraintError,

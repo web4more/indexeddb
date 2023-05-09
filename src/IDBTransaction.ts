@@ -1,9 +1,9 @@
 // Copyright 2017 Jeremy Scheff
 // SPDX-License-Identifier: Apache-2.0
 
-import FDBDatabase from "./FDBDatabase.js";
-import FDBObjectStore from "./FDBObjectStore.js";
-import FDBRequest from "./FDBRequest.js";
+import FDBDatabase from "./IDBDatabase.js";
+import FDBObjectStore from "./IDBObjectStore.js";
+import FDBRequest from "./IDBRequest.js";
 import {
   AbortError,
   InvalidStateError,

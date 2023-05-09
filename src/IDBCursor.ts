@@ -1,9 +1,9 @@
 // Copyright 2017 Jeremy Scheff
 // SPDX-License-Identifier: Apache-2.0
 
-import FDBKeyRange from "./FDBKeyRange.js";
-import FDBObjectStore from "./FDBObjectStore.js";
-import FDBRequest from "./FDBRequest.js";
+import FDBKeyRange from "./IDBKeyRange.js";
+import FDBObjectStore from "./IDBObjectStore.js";
+import FDBRequest from "./IDBRequest.js";
 import cmp from "./internal/cmp.js";
 import {
   DataError,

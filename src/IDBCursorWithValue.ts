@@ -1,7 +1,7 @@
 // Copyright 2017 Jeremy Scheff
 // SPDX-License-Identifier: Apache-2.0
 
-import FDBCursor from "./FDBCursor.js";
+import FDBCursor from "./IDBCursor.js";
 import {
   CursorRange,
   CursorSource,

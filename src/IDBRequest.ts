@@ -1,10 +1,10 @@
 // Copyright 2017 Jeremy Scheff
 // SPDX-License-Identifier: Apache-2.0
 
-import FDBCursor from "./FDBCursor.js";
-import FDBIndex from "./FDBIndex.js";
-import FDBObjectStore from "./FDBObjectStore.js";
-import FDBTransaction from "./FDBTransaction.js";
+import FDBCursor from "./IDBCursor.js";
+import FDBIndex from "./IDBIndex.js";
+import FDBObjectStore from "./IDBObjectStore.js";
+import FDBTransaction from "./IDBTransaction.js";
 import { InvalidStateError } from "./internal/errors.js";
 import FakeEventTarget from "./internal/FakeEventTarget.js";
 import { EventCallback } from "./internal/types.js";
