@@ -2,9 +2,6 @@
   "name": "@jcbhmr/indexeddb.node",
   "version": "1.0.0",
   "description": "🖥️ Node.js indexedDB API using an SQLite backend",
-  "homepage": "https://github.com/jcbhmr/indexeddb.node#readme",
-  "repository": "github:jcbhmr/indexeddb.node",
-  "bugs": "https://github.com/jcbhmr/indexeddb.node/issues",
   "keywords": [
     "nodejs",
     "polyfill",
@@ -14,25 +11,31 @@
     "indexeddb",
     "kv-store"
   ],
+  "homepage": "https://github.com/jcbhmr/indexeddb.node#readme",
+  "bugs": "https://github.com/jcbhmr/indexeddb.node/issues",
+  "repository": "github:jcbhmr/indexeddb.node",
+  "license": "Apache-2.0",
+  "contributors": [
+    "Jeremy Scheff <jdscheff@gmail.com> (http://dumbmatter.com/)",
+    "Jacob Hummer <jcbhmr@outlook.com> (https://jcbhmr.me/)"
+  ],
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
     "./*.js": "./dist/*.js",
     "./internal/*": null
   },
-  "scripts": {
-    "prepack": "vite build",
-    "pretest": "prettier -w --ignore-path .gitignore .",
-    "test": "vitest run && tools/test-wpt.ts"
-  },
-  "contributors": [
-    "Jeremy Scheff <jdscheff@gmail.com> (http://dumbmatter.com/)",
-    "Jacob Hummer <jcbhmr@outlook.com> (https://jcbhmr.me/)"
-  ],
-  "license": "Apache-2.0",
   "files": [
     "dist"
   ],
+  "scripts": {
+    "prepack": "vite build",
+    "pretest": "prettier -w --ignore-path .gitignore .",
+    "test": "vitest run && wpt-runner -s tools/wpt-IndexedDB-setup.cjs test/wpt-IndexedDB"
+  },
+  "dependencies": {
+    "env-paths": "^3.0.0"
+  },
   "devDependencies": {
     "prettier": "^2.8.8",
     "prettier-plugin-jsdoc": "^0.4.2",
@@ -43,10 +46,6 @@
     "vite-plugin-dts": "^2.3.0",
     "vite-plugin-no-bundle": "^2.0.2",
     "vitest": "^0.31.0",
-    "wpt-runner": "^5.0.0",
-    "zx": "^7.2.2"
-  },
-  "dependencies": {
-    "env-paths": "^3.0.0"
+    "wpt-runner": "^5.0.0"
   }
 }
