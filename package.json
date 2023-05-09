@@ -43,6 +43,10 @@
     "vite-plugin-dts": "^2.3.0",
     "vite-plugin-no-bundle": "^2.0.2",
     "vitest": "^0.31.0",
+    "wpt-runner": "^5.0.0",
     "zx": "^7.2.2"
+  },
+  "dependencies": {
+    "env-paths": "^3.0.0"
   }
 }
