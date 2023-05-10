@@ -1,27 +1,33 @@
-// Copyright 2017 Jeremy Scheff
-// SPDX-License-Identifier: Apache-2.0
+import IDBVersionChangeEventInit from "./IDBVersionChangeEventInit";
 
-import FakeEvent from "./lib/FakeEvent.js";
+export default class IDBVersionChangeEvent extends Event {
+  static {
+    Object.defineProperty(this.prototype, Symbol.toStringTag, {
+      value: "IDBVersionChangeEventPrototype",
+      configurable: true,
+    });
+  }
 
-class FDBVersionChangeEvent extends FakeEvent {
-    public newVersion: number | null;
-    public oldVersion: number;
+  #oldVersion: number;
+  #newVersion: number | null;
+  constructor(
+    type: string,
+    eventInitDict_: IDBVersionChangeEventInit | undefined = {}
+  ) {
+    type = "" + type;
+    const eventInitDict = IDBVersionChangeEventInit.from(eventInitDict_);
 
-    constructor(
-        type: "blocked" | "success" | "upgradeneeded" | "versionchange",
-        parameters: { newVersion?: number | null; oldVersion?: number } = {},
-    ) {
-        super(type);
+    super(type, eventInitDict);
 
-        this.newVersion =
-            parameters.newVersion !== undefined ? parameters.newVersion : null;
-        this.oldVersion =
-            parameters.oldVersion !== undefined ? parameters.oldVersion : 0;
-    }
+    this.#oldVersion = eventInitDict.oldVersion;
+    this.#newVersion = eventInitDict.newVersion;
+  }
 
-    public toString() {
-        return "[object IDBVersionChangeEvent]";
-    }
+  get oldVersion(): number {
+    return this.#oldVersion;
+  }
+
+  get newVersion(): number | null {
+    return this.#newVersion;
+  }
 }
-
-export default FDBVersionChangeEvent;
