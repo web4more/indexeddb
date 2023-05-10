@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts", "src/ponyfill.ts", "src/polyfill.ts"],
+    "out": "docs/dist",
+    "skipErrorChecking": true
+  }
+}
